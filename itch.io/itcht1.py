@@ -30,11 +30,11 @@ def itchIoSearch(search):
 		link = title.get("href")
 		name = title.text.strip()
 		entry = {"title": name, 
-				"URI": link
+				"URIs": link
 				}
 		write_json(entry)
 	
 		print(entry)
-	
+# ~ usage:
 itchIoSearch("risk")
 		

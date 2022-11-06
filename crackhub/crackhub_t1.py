@@ -35,7 +35,7 @@ def crackhubSearch(search):
 		title = title.text.strip()
 		time.sleep(1)
 		entry = {"title": title,
-					 "URI": link
+					 "URIs": link
 				}
 			
 		print(entry)
