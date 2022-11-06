@@ -31,17 +31,20 @@ def crackhubSearch(search):
 	for title in titles:
 		link = title.find('a')
 		link = link.get("href")
-
-		title = title.text.strip()
-		time.sleep(1)
-		entry = {"title": title,
-					 "URIs": link
-				}
 			
-		print(entry)
-		write_json(entry)
-		results.append(entry)
+		title = title.text.strip()
+		titleCheck = title.lower()
+		searchCheck = search.lower()
+		if searchCheck in titleCheck:
+			time.sleep(1)
+			entry = {"title": title,
+						 "URIs": link
+					}
+				
+			print(entry)
+			write_json(entry)
+			results.append(entry)
 
 	
 # ~ usage:
-crackhubSearch("hades")
+crackhubSearch("stray")

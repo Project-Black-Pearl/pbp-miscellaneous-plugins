@@ -29,12 +29,16 @@ def itchIoSearch(search):
 	for title in titles: 
 		link = title.get("href")
 		name = title.text.strip()
-		entry = {"title": name, 
-				"URIs": link
-				}
-		write_json(entry)
-	
-		print(entry)
+		
+		titleCheck = name.lower()
+		searchCheck = search.lower()
+		if searchCheck in titleCheck:
+			entry = {"title": name, 
+					"URIs": link
+					}
+			write_json(entry)
+		
+			print(entry)
 # ~ usage:
-itchIoSearch("risk")
+itchIoSearch("risk of rain")
 		
