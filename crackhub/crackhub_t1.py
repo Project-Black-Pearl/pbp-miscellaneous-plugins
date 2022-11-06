@@ -1,6 +1,22 @@
 import requests
 import time
 from bs4 import BeautifulSoup
+import unidecode, json
+
+
+with open("crackhub-results.json",'w+') as file:
+	base = '''{"response":[]	
+}'''
+	file.write(base)
+
+
+def write_json(new_data, filename='crackhub-results.json'):
+			with open(filename,'r+', encoding='utf-8') as file:
+				file_data = json.load(file)
+				file_data["response"].append(new_data)
+				file.seek(0)
+				json.dump(file_data, file, indent = 4)
+
 
 
 # Search
@@ -18,25 +34,14 @@ def crackhubSearch(search):
 
 		title = title.text.strip()
 		time.sleep(1)
-		entry = "title:", title, "link:", link
+		entry = {"title": title,
+					 "URI": link
+				}
+			
+		print(entry)
+		write_json(entry)
 		results.append(entry)
-		
-	return(results)
+
 	
-	# ~ if search in title:
-		# ~ for i in range(0, len(titles)):
-			# ~ try:
-				# ~ results.append(titles[i].text)
-				# ~ results.append(link[i].attrs['href'])
-			# ~ except:
-				# ~ pass
-	# ~ if results == []:
-		# ~ results.append("Crackhub: Nothing Found")
-
-	# ~ full = results[1::2]
-	# ~ return(link)
-
-
-
 # ~ usage:
-print(crackhubSearch("hades"))
+crackhubSearch("hades")
