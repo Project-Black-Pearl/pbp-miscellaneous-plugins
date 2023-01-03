@@ -1,7 +1,7 @@
 # pbp-miscellaneous-plugins
 
-(a lot of these are reuploads from the old pirates-creek proj. but retested and fixed to work with the pbp proj.)
+A lot of these are re-uploads from the old pirates-creek project, but re-tested and fixed to work with PBP.
 
-required libs:
+Required Libraries:
  - bs4
  - requests
